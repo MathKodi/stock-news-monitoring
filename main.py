@@ -7,8 +7,6 @@ import config
 STOCK = "TSLA"
 COMPANY_NAME = "Tesla Inc"
 
-## STEP 1: Use https://www.alphavantage.co
-# When STOCK price increase/decreases by 5% between yesterday and the day before yesterday then print("Get News").
 from datetime import datetime, timedelta
 
 today = datetime.today()
@@ -40,9 +38,6 @@ before_yesterday_price = float(stock_price[data_beforeyesterday]["4. close"])
 print(yesterday_price)
 print(before_yesterday_price)
 
-
-## STEP 2: Use https://newsapi.org
-# Instead of printing ("Get News"), actually get the first 3 news pieces for the COMPANY_NAME. 
 api_key_news = config.news_api_key
 account_sid = config.account_sid
 auth_token = config.auth_token
@@ -65,20 +60,6 @@ def check_percentage_change(yesterday, before_yesterday):
                     from_=twiliophone)
                 print(message.sid)
 
-
 check_percentage_change(yesterday=yesterday_price, before_yesterday=before_yesterday_price)
 
-## STEP 3: Use https://www.twilio.com
-# Send a seperate message with the percentage change and each article's title and description to your phone number. 
-
-#Optional: Format the SMS message like this: 
-"""
-TSLA: 🔺2%
-Headline: Were Hedge Funds Right About Piling Into Tesla Inc. (TSLA)?. 
-Brief: We at Insider Monkey have gone over 821 13F filings that hedge funds and prominent investors are required to file by the SEC The 13F filings show the funds' and investors' portfolio positions as of March 31st, near the height of the coronavirus market crash.
-or
-"TSLA: 🔻5%
-Headline: Were Hedge Funds Right About Piling Into Tesla Inc. (TSLA)?. 
-Brief: We at Insider Monkey have gone over 821 13F filings that hedge funds and prominent investors are required to file by the SEC The 13F filings show the funds' and investors' portfolio positions as of March 31st, near the height of the coronavirus market crash.
-"""
 
